@@ -16799,6 +16799,7 @@ GameObject:
   - component: {fileID: 1624503077}
   - component: {fileID: 1624503080}
   - component: {fileID: 1624503079}
+  - component: {fileID: 1624503081}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -16849,7 +16850,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 0f39a9205e4394ee1b6ba8269428d176, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -16939,6 +16940,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13360353, y: 0.22025603}
   m_EdgeRadius: 0
+--- !u!114 &1624503081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624503076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce6c1cc0af964944b15c6e4c66b2dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1624503079}
+  spriteRenderer: {fileID: 1624503077}
+  UpidleSprite: {fileID: 21300000, guid: 4fc82fadd0e1d4ed8a697be473d72842, type: 3}
+  DownidleSprite: {fileID: 21300000, guid: 0f39a9205e4394ee1b6ba8269428d176, type: 3}
+  SideidleSprite: {fileID: 21300000, guid: 21ae12909dfa64464820da55fc494021, type: 3}
 --- !u!1 &1644561979
 GameObject:
   m_ObjectHideFlags: 0
