@@ -53,8 +53,8 @@ public class Player : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        pos.x = Mathf.Clamp(pos.x, -7.8f, 7.5f);
-        pos.y = Mathf.Clamp(pos.y, -4.1f, 3.5f);
+        pos.x = Mathf.Clamp(pos.x, -7.8f, 7.1f);
+        pos.y = Mathf.Clamp(pos.y, -4.5f, 3f);
 
         transform.position = pos;
     }
