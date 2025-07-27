@@ -18,49 +18,34 @@ public class Player : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        bool isMoving = animator.GetBool("ismoving");
 
         Vector3 move = new Vector3(moveX, moveY, 0).normalized;
         transform.position += move * Time.deltaTime * 5f;
-        if (Input.GetKey(KeyCode.W))
+
+        bool isMoving = move != Vector3.zero;
+        animator.SetBool("isMoving", isMoving);
+        if (isMoving)
         {
-            animator.SetInteger("direction", 0);
-            animator.SetBool("isMoving", true);
-            spriteRenderer.flipX = false;
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            animator.SetBool("isMoving", false);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            animator.SetInteger("direction", 2);
-            animator.SetBool("isMoving", true);
-            spriteRenderer.flipX = true;
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            animator.SetBool("isMoving", false);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            animator.SetInteger("direction", 1);
-            animator.SetBool("isMoving", true);
-            spriteRenderer.flipX = false;
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            animator.SetBool("isMoving", false);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            animator.SetInteger("direction", 2);
-            animator.SetBool("isMoving", true);
-            spriteRenderer.flipX = false;
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            animator.SetBool("isMoving", false);
+            if (moveY > 0)
+            {
+                animator.SetInteger("direction", 0);
+                spriteRenderer.flipX = false;
+            }
+            else if (moveY < 0)
+            {
+                animator.SetInteger("direction", 1);
+                spriteRenderer.flipX = false;
+            }
+            else if (moveX < 0)
+            {
+                animator.SetInteger("direction", 2);
+                spriteRenderer.flipX = true;
+            }
+            else if (moveX > 0)
+            {
+                animator.SetInteger("direction", 2);
+                spriteRenderer.flipX = false;
+            }
         }
     }
 }
