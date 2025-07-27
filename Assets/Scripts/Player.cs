@@ -48,4 +48,14 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    void LateUpdate()
+    {
+        Vector3 pos = transform.position;
+
+        pos.x = Mathf.Clamp(pos.x, -7.8f, 7.5f);
+        pos.y = Mathf.Clamp(pos.y, -4.1f, 3.5f);
+
+        transform.position = pos;
+    }
 }
