@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -7,9 +8,6 @@ public class Player : MonoBehaviour
 {
     public Animator animator;
     public SpriteRenderer spriteRenderer;
-    public Sprite UpidleSprite;
-    public Sprite DownidleSprite;
-    public Sprite SideidleSprite;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -18,8 +16,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal"); 
+        float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+        bool isMoving = animator.GetBool("ismoving");
 
         Vector3 move = new Vector3(moveX, moveY, 0).normalized;
         transform.position += move * Time.deltaTime * 5f;
