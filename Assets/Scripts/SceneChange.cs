@@ -12,6 +12,9 @@ public class SceneChange : MonoBehaviour
 
     public void LoadMain()
     {
+        ScoreManager.Instance.SaveHighScore(); // 최고 점수 저장
+        PlayerPrefs.SetInt("LastScore", ScoreManager.Instance.score); // 현재 점수 저장
+        PlayerPrefs.Save();
         SceneManager.LoadScene("MainScene");
     }
 }
