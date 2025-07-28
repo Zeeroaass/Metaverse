@@ -7,5 +7,11 @@ public class SceneChange : MonoBehaviour
     public void LoadMinigame()
     {
         SceneManager.LoadScene("MinigameScene");
+        Time.timeScale = 0;
+    }
+
+    public void LoadMain()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }

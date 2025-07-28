@@ -16,8 +16,12 @@ public class PlayerMinigame: MonoBehaviour
 
     public bool godMode = false;
 
+    GameManager gameManager = null;
+
     void Start()
     {
+        gameManager = GameManager.Instance;
+
         animator = transform.GetComponentInChildren<Animator>();
         _rigidbody = transform.GetComponent<Rigidbody2D>();
 
@@ -40,7 +44,7 @@ public class PlayerMinigame: MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    // 게임 재시작
+                    gameManager.RestartGame();
                 }
             }
             else
@@ -80,20 +84,14 @@ public class PlayerMinigame: MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (godMode)
-        {
             return;
-        }
-
 
         if (isDead)
-        {
             return;
-        }    
 
-
+        animator.SetInteger("IsDie", 1);
         isDead = true;
         deathCooldown = 1f;
-        animator.SetInteger("IsDie", 1);
-
+        gameManager.GameOver();
     }
 }
