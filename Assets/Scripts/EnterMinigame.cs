@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class EnterMinigame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject UI;
+
+    private void OnTriggerEnter2D(Collider2D other) //영역에 들어올때
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            UI.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D other) //영역에서 나갈때
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            UI.SetActive(false);
+        }
     }
 }
