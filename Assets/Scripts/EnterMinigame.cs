@@ -14,7 +14,7 @@ public class EnterMinigame : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) //영역에서 나갈때
+    private void OnTriggerExit2D(Collider2D other) //영역에서 나갈때 sddsdsd
     {
         if (other.CompareTag("Player"))
         {
